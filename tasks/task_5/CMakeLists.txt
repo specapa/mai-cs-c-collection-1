@@ -1,4 +1,4 @@
-add_library(task5_lib args.c)
+add_library(task5_lib args.c string_concatenate.c file_process.c)
 target_include_directories(task5_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_executable(task5 main.c)
