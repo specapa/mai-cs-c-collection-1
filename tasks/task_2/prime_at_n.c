@@ -47,13 +47,12 @@ status_t prime_with_eratosphen(uint64_t n, uint64_t limit, uint64_t *out) {
 
 status_t compute_limit(uint64_t n, uint64_t *out) {
     if (!out) return STATUS_INVALID_ARGUMENT;
+    if (n <= 1) return STATUS_INVALID_ARGUMENT;
 
     if (n < 6) {
         *out = 12;
         return STATUS_OK;
     }
-
-    if (n <= 1) return STATUS_INVALID_ARGUMENT;
 
     double val = log((double)n) + log(log((double)n));
     if (val < 0) return STATUS_INVALID_ARGUMENT;
@@ -71,6 +70,7 @@ status_t compute_limit(uint64_t n, uint64_t *out) {
 status_t find_prime_number_by_number(uint64_t n, uint64_t *out) {
     status_t s_calc;
     status_t s_limit;
+    if (out == NULL) return STATUS_INVALID_ARGUMENT;
     if (n == 0) return STATUS_INVALID_ARGUMENT;
     if (n == 1) {
         *out = 2;

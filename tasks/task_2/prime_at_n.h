@@ -13,6 +13,8 @@ typedef enum {
 } status_t;
 
 status_t find_prime_number_by_number(uint64_t, uint64_t *);
+status_t prime_with_eratosphen(uint64_t n, uint64_t limit, uint64_t *out);
+status_t compute_limit(uint64_t n, uint64_t *out);
 const char *status_to_string(int st);
 
 #endif // PRIME_AT_H

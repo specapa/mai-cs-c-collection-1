@@ -11,7 +11,7 @@ add_executable(task2_tests
 target_link_libraries(task2_tests
     PRIVATE
     gtest_main
-    task3_lib
+    task2_lib
     utils
     m
 )

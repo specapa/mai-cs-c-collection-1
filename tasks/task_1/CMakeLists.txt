@@ -5,13 +5,13 @@ add_executable(task1 main.c)
 target_link_libraries(task1 PRIVATE utils task1_lib)
 
 add_executable(task1_tests
-    task3_tests.cpp
+    task1_tests.cpp
 )
 
 target_link_libraries(task1_tests
     PRIVATE
     gtest_main
-    task3_lib
+    task1_lib
     utils
     m
 )
