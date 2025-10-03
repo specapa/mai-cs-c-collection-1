@@ -150,8 +150,8 @@ u_status_t parse_double(const char *s, double *out_value, double min_allowed, do
         if (!isfinite(value)) return U_OVERFLOW;
     }
 
-    // if (value < min_allowed || value > max_allowed)
-    //     return U_INVALID_FORMAT;
+    if (value < min_allowed || value > max_allowed)
+        return U_INVALID_FORMAT;
 
     *out_value = value;
     return U_OK;
