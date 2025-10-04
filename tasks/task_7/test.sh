@@ -1,0 +1,1 @@
+../../build/task7 test.txt out.txt
