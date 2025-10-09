@@ -194,7 +194,7 @@ static void sort3(double a[3]) {
 status_t is_right_triangle(const double sides[3], double eps, int *is_right_triangle) {
     if (sides == NULL || is_right_triangle == NULL) return STATUS_INVALID_ARGUMENT;
     double a = sides[0], b = sides[1], c = sides[2];
-    if (!(a > 0.0 && b > 0.0 && c > 0.0)) {
+    if (!(a > eps && b > eps && c > eps)) {
         *is_right_triangle = 0;
         return STATUS_OK;
     }
