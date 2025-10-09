@@ -33,6 +33,8 @@ int main() {
         free(string);
         return status;
     }
+    free(string);
+    string = NULL;
 
     long long temp_value;
     long long max_abs_value = 0;
@@ -50,7 +52,8 @@ int main() {
         if (strcmp(string, "Stop") == 0) break;
 
         status = parse_n_base_to_ll(string, &temp_value, base);
-
+        free(string);
+        string = NULL;
         if (status != U_OK) {
             fprintf(stderr, "At parse_n_base_to_ll: ");
             iteration_error_processing(status, &string);
@@ -70,12 +73,16 @@ int main() {
         u_status_print(stderr, status, u_status_to_string);
     }
     fprintf(stdout, "%s in %d base <=> %lld in 10 base\n", result_string, base, max_abs_value);
+    free(result_string);
+    result_string = NULL;
     for (unsigned int i = 1; i < 5; ++i) {
         status = convert_ll_to_n_base(max_abs_value, &result_string, i * 9);
         if (status != U_OK) {
             fprintf(stderr, "At convert_ll_to_%d_base: ", i * 9);
             u_status_print(stderr, status, u_status_to_string);
         }
+        free(result_string);
+        result_string = NULL;
         fprintf(stdout, "%lld converted to %d base: %s\n", max_abs_value, i * 9, result_string);
     }
 
