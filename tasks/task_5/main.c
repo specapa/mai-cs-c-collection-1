@@ -55,6 +55,6 @@ int main(int argc, char *argv[]) {
         u_status_print(stderr, stat, u_status_to_string);
         return stat;
     }   
-    free(output_file_name);
+    if (argc == 3) free(output_file_name);
     return U_OK;
 }
